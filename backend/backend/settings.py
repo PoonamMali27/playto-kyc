@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-i2-b61kwh*pzg$xfsmb7uo-=y-xj0h_0(8r@hvtipkl)tup=xx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -124,6 +124,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 AUTH_USER_MODEL = 'kyc.User'
 
 MEDIA_URL = '/media/'
