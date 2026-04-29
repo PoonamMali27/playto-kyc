@@ -335,3 +335,36 @@ def merchant_signup(request):
         "username": user.username,
         "role": user.role
     }, status=201)
+
+@api_view(['GET'])
+def seed_users(request):
+    merchant, _ = User.objects.get_or_create(
+        username="merchant1",
+        defaults={
+            "email": "merchant1@test.com",
+            "role": "merchant",
+        }
+    )
+    merchant.set_password("12345")
+    merchant.save()
+
+    reviewer, _ = User.objects.get_or_create(
+        username="reviewer2",
+        defaults={
+            "email": "reviewer2@test.com",
+            "role": "reviewer",
+            "is_staff": True,
+            "is_superuser": True,
+        }
+    )
+    reviewer.set_password("12345")
+    reviewer.role = "reviewer"
+    reviewer.is_staff = True
+    reviewer.is_superuser = True
+    reviewer.save()
+
+    return Response({
+        "message": "Users seeded successfully",
+        "merchant": merchant.username,
+        "reviewer": reviewer.username
+    })
