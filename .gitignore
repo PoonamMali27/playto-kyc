@@ -1,0 +1,19 @@
+# Python
+venv/
+venvv/
+__pycache__/
+*.pyc
+db.sqlite3
+
+# Node
+node_modules/
+dist/
+
+# Env
+.env
+
+# OS
+.DS_Store
+
+# Media uploads
+media/
