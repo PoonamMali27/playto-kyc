@@ -17,7 +17,7 @@ const [view, setView] = useState("merchant");
   useEffect(() => {
     const loadDraft = async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:8000/api/v1/kyc/draft/latest/");
+        const res = await axios.get("https://playto-kyc-backend-l6t5.onrender.com/api/v1/kyc/draft/latest/");
 
         setKycId(res.data.id);
         setName(res.data.name || "");
@@ -47,7 +47,7 @@ const [view, setView] = useState("merchant");
     try {
       console.log("SUBMIT CLICKED");
 
-      const res = await axios.post("http://127.0.0.1:8000/api/v1/kyc/", {
+      const res = await axios.post("https://playto-kyc-backend-l6t5.onrender.com/api/v1/kyc/", {
         name,
         email,
         phone,
@@ -67,7 +67,7 @@ const [view, setView] = useState("merchant");
 
   const handleSaveDraft = async () => {
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/v1/kyc/draft/", {
+      const res = await axios.post("https://playto-kyc-backend-l6t5.onrender.com/api/v1/kyc/draft/", {
         id: kycId,
         name,
         email,
@@ -106,7 +106,7 @@ formData.append("document", file);
 
     try {
       const res = await axios.post(
-        `http://127.0.0.1:8000/api/v1/upload/${kycId}/`,
+        `https://playto-kyc-backend-l6t5.onrender.com/api/v1/upload/${kycId}/`,
         formData
       );
 
@@ -132,7 +132,7 @@ formData.append("document", file);
 
   try {
     const res = await axios.post(
-      `http://127.0.0.1:8000/api/v1/kyc/${kycId}/resubmit/`
+      `https://playto-kyc-backend-l6t5.onrender.com/api/v1/kyc/${kycId}/resubmit/`
     );
 
     console.log("RESUBMIT SUCCESS 👉", res.data);

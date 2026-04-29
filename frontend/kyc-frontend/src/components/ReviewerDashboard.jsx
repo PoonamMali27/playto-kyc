@@ -11,7 +11,7 @@ export default function ReviewerDashboard() {
 
   const loadDashboard = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/api/v1/reviewer/dashboard/");
+      const res = await axios.get("https://playto-kyc-backend-l6t5.onrender.com/api/v1/reviewer/dashboard/");
       setMetrics(res.data.metrics);
       setQueue(res.data.queue);
       console.log("Reviewer dashboard:", res.data);
@@ -29,7 +29,7 @@ export default function ReviewerDashboard() {
   }
 
   try {
-    await axios.post(`http://127.0.0.1:8000/api/v1/kyc/${id}/state/`, {
+    await axios.post(`https://playto-kyc-backend-l6t5.onrender.com/api/v1/kyc/${id}/state/`, {
       state: state,
       reason: reason,
     });
@@ -99,7 +99,7 @@ export default function ReviewerDashboard() {
 
               {item.documents && (
                 <a
-                  href={`http://127.0.0.1:8000${item.documents}`}
+                  href={`https://playto-kyc-backend-l6t5.onrender.com${item.documents}`}
                   target="_blank"
                   className="text-blue-600 underline"
                 >
